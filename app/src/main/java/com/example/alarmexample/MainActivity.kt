@@ -23,6 +23,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //TODO: Use findViewById to declare button and editTexts
         button = findViewById(R.id.button);
         edtTextHour = findViewById(R.id.edtTextHour);
         edtTextMinute = findViewById(R.id.edtTextMinute);
@@ -30,29 +31,46 @@ class MainActivity : AppCompatActivity() {
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.SET_ALARM) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this,arrayOf<String>(Manifest.permission.SET_ALARM), 101);
         }
+
+
+        //TODO: Call setAlarm()
         button.setOnClickListener {
-            setAlarm()
+            //TODO:
         }
 
     }
     fun setAlarm() {
-        val hours = Integer.valueOf(edtTextHour.text.toString())
-        val minutes = Integer.valueOf(edtTextMinute.text.toString())
-        //Did not check for not int cases ^
-        val intent = Intent(AlarmClock.ACTION_SET_ALARM)
-        intent.putExtra(AlarmClock.EXTRA_HOUR, hours)
-        intent.putExtra(AlarmClock.EXTRA_MINUTES, minutes)
-        intent.putExtra(AlarmClock.EXTRA_MESSAGE, "This is a test alarm")
+        // TODO: Read value of both text fields
+
+        // CODE HERE
+
+        // TODO: Create a new intent for setting alarms
+//        AlarmClock.ACTION_SET_ALARM)
+//        AlarmClock.EXTRA_MESSAGE
+//        AlarmClock.EXTRA_HOUR
+//        AlarmClock.EXTRA_MINUTES
+//        AlarmClock.EXTRA_DAYS
+
+
+
+        //TODO: Make an ArrayList with the days you want the alarm for (Calendar."DAY")
         val days: ArrayList<Int> = ArrayList()
-        days.add(Calendar.FRIDAY)
-        days.add(Calendar.SUNDAY)
-        days.add(Calendar.TUESDAY)
-        intent.putExtra(AlarmClock.EXTRA_DAYS, days)
-        startActivity(intent);
-        val calendar = Calendar.getInstance()
-        val date = calendar.time
-        val currentTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date)
-        Toast.makeText(this, "Date: $currentTime", Toast.LENGTH_SHORT).show()
+
+        // TODO: Pass the extra days to the intent
+
+        // CODE HERE
+
+
+
+        //TODO: Start the activity
+
+
+        // CODE HERE
+
+
+        //TODO: OPTIONAL- Add a toast message to show the current day
+
+        // CODE HERE
 
     }
 }
